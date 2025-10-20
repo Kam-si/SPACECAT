@@ -115,3 +115,82 @@ footer {
   from { transform: translateY(0); }
   to { transform: translateY(-50%); }
 }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  body {
+    animation: fadeIn 1.2s ease;
+  }
+  
+  /* Header shimmer effect */
+  header h1 {
+    background: linear-gradient(90deg, #d8b4f8, #a5c0ff, #b993d6);
+    background-size: 200% auto;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  
+  @keyframes shimmer {
+    to { background-position: 200% center; }
+  }
+  
+  /* Page glow box */
+  .content {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+    pointer-events: none;
+  }
+  
+  /* Tentacle animations for Speaker page */
+  .speaker-section .tentacle {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at center, #7b5dc8, #2a1b52);
+    border-radius: 50% 50% 0 0;
+    opacity: 0.25;
+    top: 15%;
+    animation: waveTentacle 10s ease-in-out infinite alternate;
+  }
+  
+  .speaker-section .tentacle-left {
+    left: -80px;
+    transform: rotate(45deg);
+  }
+  
+  .speaker-section .tentacle-right {
+    right: -80px;
+    transform: rotate(-45deg);
+  }
+  
+  @keyframes waveTentacle {
+    0% { transform: rotate(35deg) translateY(0); }
+    100% { transform: rotate(50deg) translateY(-20px); }
+  }
+  
+  /* Eels floating */
+  .eels {
+    position: absolute;
+    width: 220px;
+    opacity: 0.4;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatEels 12s ease-in-out infinite alternate;
+  }
+  
+  @keyframes floatEels {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-25px); }
+  }
