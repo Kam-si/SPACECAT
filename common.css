@@ -1,0 +1,148 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom, #1b0d3b, #2a1a52);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(30, 20, 60, 0.85);
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li { margin: 0 20px; }
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffe3ff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+nav ul li a:hover {
+  color: #38098f;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px #ff6f91;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 140px 20px 60px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+section h1 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: #ffe3ff;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+}
+
+section p {
+  max-width: 800px;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #ffe3ff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Background Images for each page */
+.home { background: url('images/home.jpg') center/cover no-repeat; }
+.speaker { background: url('images/speaker.jpg') center/cover no-repeat; }
+.purpose { background: url('images/purpose.jpg') center/cover no-repeat; }
+.audience { background: url('images/audience.jpg') center/cover no-repeat; }
+.context { background: url('images/context.jpg') center/cover no-repeat; }
+.exigence { background: url('images/exigence.jpg') center/cover no-repeat; }
+.choices { background: url('images/choices.jpg') center/cover no-repeat; }
+.appeals { background: url('images/appeals.jpg') center/cover no-repeat; }
+.tone { background: url('images/tone.jpg') center/cover no-repeat; }
+
+/* Overlay for readability */
+section::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
+
+section > * { position: relative; z-index: 1; }
+
+/* Transparent Floating Bubbles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  filter: blur(2px);
+  animation-name: floatUpDown, sway;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Vertical float */
+@keyframes floatUpDown {
+  0% { transform: translateY(0px); opacity:0.2; }
+  50% { transform: translateY(-50px); opacity:0.4; }
+  100% { transform: translateY(0px); opacity:0.2; }
+}
+
+/* Horizontal sway */
+@keyframes sway {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0px); }
+}
+.home {
+  background: url("Ursula.png") center/cover no-repeat; /* existing background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add Ursula image as overlay behind text */
+.home::after {
+  content: '';
+  position: absolute;
+  top: 50%; /* vertical center */
+  left: 50%; /* horizontal center */
+  transform: translate(-50%, -50%);
+  width: 60%; /* adjust size */
+  height: auto;
+  background: url('images/ursula.png') center/contain no-repeat;
+  opacity: 0.3; /* makes it subtle behind text */
+  z-index: 0; /* behind the text */
+  pointer-events: none; /* doesn’t block clicks */
+}
+
+/* Ensure section content stays above image */
+.home > * { position: relative; z-index: 1; }
+.center-image {
+  display: block;
+  margin: 30px auto;   /* centers horizontally */
+  width: 40%;          /* adjust size */
+  height: auto;
+  border-radius: 15px; /* optional rounded edges */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
